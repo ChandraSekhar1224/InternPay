@@ -1,0 +1,535 @@
+<html>
+    <head>
+        <title>Ebooks</title>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
+        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <script src="functions.js"></script>
+    </head>
+    <body>
+        <!-- Website Header -->
+        <nav class="navbar navbar-light bg-secondary">
+            <a class="navbar-brand" href="#" style="color: white; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+              <img src="logo.jpg" width="50" height="50" class="d-inline-block align-center" alt="">
+              EBooks
+            </a>
+            <div style="text-align: right; font-size: 18px; margin-right: 50px;">
+                <a href="buy_product.html" style="color: white; margin-right: 20px;"><ion-icon name="cart" style="color: white; font-size: 35px;"></ion-icon>
+                <span id="cart_no" style="color: greenyellow;">0</span>
+                </a>
+
+                <a href="#register" style="color: white; margin-right: 20px;" data-toggle="modal">Register</a>
+
+                <a href="#login" style="color: white; margin-right: 20px;" data-toggle="modal">Login</a>
+
+                <a href="#footer" style="color: white;">Contact Us</a>
+            </div>
+          </nav>
+
+          <!-- Register Modal -->
+          <div class="modal" id="register" tabindex="1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Register</h5>
+                  <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="border: 0px; background: grey; border-radius: 5px;">&times;</button>
+                </div>
+                <div class="modal-body">
+                  Email<input type="email" class="form-control mt-2 mb-2" id="email" placeholder="name@example.com">
+                    Password<input type="password" class="form-control mt-2 mb-2" id="password" placeholder="Enter Password">
+                   Confirm Password <input type="c_password" class="form-control mt-2 mb-2" id="c_password" placeholder="Confirm Password">
+                    <a href="#login" onclick="register_close()" data-toggle="modal" style="margin-left: 90%;">Login</a>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Register</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Login Modal -->
+          <div class="modal" id="login" tabindex="1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Login</h5>
+                  <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="border: 0px; background: grey; border-radius: 5px;">&times;</button>
+                </div>
+                <div class="modal-body">
+                  Email<input type="email" class="form-control mt-2 mb-2" id="email" placeholder="name@example.com">
+                    Password<input type="password" class="form-control mt-2 mb-2" id="password" placeholder="Enter Password">
+                    <a href="#register" data-toggle="modal" onclick="login_close()">Register</a>
+                    <a href="#" onclick="close()" style="margin-left: 50%;">Forgot password</a>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Login</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <!-- Buy Product -->
+          <div class="modal" id="ed_1">
+            <div class="modal-dialog" style="margin-top: 0px;">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="pro_cat">Education Book</h5>
+                  <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="border: 0px; background: grey; border-radius: 5px;">&times;</button>
+                </div>
+                <div class="modal-body" style="height: 40%;">
+                 <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTl-4vcYsoCbIrsMRbCT7GlOgmFSkg2lO4M4xYeHgjT_KKfOHVPhu_9QQ5PaMLQqkXHMm8O13AIY4IzzEOpOd9ybv4ZJAnTMh50i-MlcccRRlRMagQRh0wubw&usqp=CAE" style="height: 250px; width: 470px;" id="pro_img">
+                 <h3 style="margin-top: 5px;" id="pro_title">Communication and Educational Technology</h3>
+                <h5 id="pro_author">Author: Suresh K.Sharma | Reena Sharma</h5>
+                <h4 id="pro_price" class="price">Price: <i class="fa fa-rupee"></i> 490.00 </h4>
+                <h4 id="pro_rating">Rating:
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-half"></ion-icon>
+                </div> </h4>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" onclick="add_to_cart()">Add to cart</button>
+                  <button type="button" class="btn btn-primary" onclick="buy_product()">Book Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal" id="ed_2">
+            <div class="modal-dialog" style="margin-top: 0px;">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="pro_cat">Education Book</h5>
+                  <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="border: 0px; background: grey; border-radius: 5px;">&times;</button>
+                </div>
+                <div class="modal-body">
+                 <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQfDs60SUwPKjyxXldRXdD8VYyb95kFSN_p4vvGk9jA1hhWgl3dyqSjq0qiYG4dFSd61ZfrzIEAVSgB6wpzuTmhFX3ckADzKqbWpnoAijFD&usqp=CAE" style="height: 250px; width: 470px;" id="pro_img">
+                 <h3 style="margin-top: 5px;" id="pro_title">Education To Life</h3>
+                <h5 id="pro_author">Author: Aju Kurian</h5>
+                <h4 id="pro_price" class="price">Price: <i class="fa fa-rupee"></i> 350.00 </h4>
+                <h4 id="pro_rating">Rating:
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-half"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                </div> </h4>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" onclick="add_to_cart()">Add to cart</button>
+                  <button type="button" class="btn btn-primary" onclick="buy_product()">Book Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add to cart success -->
+          <div class="modal" id="add_success" tabindex="1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header bg-success">
+                  <h5 class="modal-title">
+                    <ion-icon name="cart" class="mr-2"></ion-icon>Added to cart</h5>
+                  <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="border: 0px; background: grey; border-radius: 5px;">&times;</button>
+                </div>
+                <div class="modal-body">
+                  <h5>Product has been addedd successfully. Check out cart to purchase the product.</h5>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="buy_product()">Book Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="#carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="https://cdn.pixabay.com/photo/2018/01/25/20/34/ebook-3106984_1280.jpg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="https://cdn.pixabay.com/photo/2016/09/13/08/45/library-1666703_1280.jpg" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="https://cdn.pixabay.com/photo/2018/10/04/14/22/rain-3723749_1280.jpg" alt="Third slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="https://cdn.pixabay.com/photo/2022/10/02/14/35/a-book-7493614_1280.jpg" alt="Fourth slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="https://cdn.pixabay.com/photo/2017/07/03/11/10/ebook-2467267_1280.jpg" alt="Fifth slide slide">
+              </div>
+            </div>
+          </div>
+
+        <!-- Search a book -->
+        <nav class="navbar navbar-light bg-light">
+            <form class="form-inline">
+              <input style="width: 500px;" class="form-control mr-sm-2" type="search" placeholder="Search a book" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+              <select class="select">
+                <option value="All">All</option>
+                <option value="Education">Education</option>
+                <option value="Stories">Stories</option>
+                <option value="Religion">Religion</option>
+                <option value="Horror">Horror</option>
+                <option value="Fiction">Fiction</option>
+                <option value="Non-Fiction">Non-Fiction</option>
+                <option value="Moral">Moral</option>
+              </select>
+            </form>
+          </nav>
+
+          <!-- Book Categories -->
+        <div>
+          <h3 class="categories">Education</h3>
+          <div style="margin-right: 50px;">
+
+        <a href="#ed_1" data-toggle="modal" class="links" style="color: black;">
+          <figure class="figure">
+            <img onclick="buy()" id="edd_1" src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTl-4vcYsoCbIrsMRbCT7GlOgmFSkg2lO4M4xYeHgjT_KKfOHVPhu_9QQ5PaMLQqkXHMm8O13AIY4IzzEOpOd9ybv4ZJAnTMh50i-MlcccRRlRMagQRh0wubw&usqp=CAE" style="height: 200px; width: 250px;" class="figure-img img-fluid" alt="">
+            <figcaption>
+                <h4 class="book_name" id="edd_1_title">Communication and Educational Technology</h4>
+                <h5 id="edd_1_author" class="author">Suresh K.Sharma | Reena Sharma</h5>
+                <h4 id="edd_1_price" class="price"><i class="fa fa-rupee"></i> 490.00 
+                  </h4><h4>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-half"></ion-icon>
+                </h4>
+            </figcaption>
+          </figure>
+          </a>
+
+          <a href="#ed_2" data-toggle="modal" style="color: black;">
+          <figure class="figure">
+            <img onclick="buy()" id="edd_2" src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQfDs60SUwPKjyxXldRXdD8VYyb95kFSN_p4vvGk9jA1hhWgl3dyqSjq0qiYG4dFSd61ZfrzIEAVSgB6wpzuTmhFX3ckADzKqbWpnoAijFD&usqp=CAE" style="height: 200px; width: 250px;" class="figure-img img-fluid" alt="">
+            <figcaption>
+                <h4 class="book_name">Education To Life</h4>
+                <h5 class="author">Aju Kurian</h5>
+                <h4 class="price"><i class="fa fa-rupee"></i> 350.00 </h4>
+                <h4>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-half"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                </h4>
+            </figcaption>
+          </figure>
+          </a>
+
+          <a href="#" style="color: black;">
+          <figure class="figure">
+            <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRyOk6VnVaVjHGWlB4pXSIqHw73PPIrCprkPm2TtTj_nag4dwtRF0pa8Zyhk6K77spddfs1SgOPzEkEBGiBRrVIqK3feLJkCpRNrnoogB5Tapkn2MFozHf4lA&usqp=CAE" style="height: 200px; width: 250px;" class="figure-img img-fluid" alt="">
+            <figcaption>
+                <h4 class="book_name">Education At The CrossRoads</h4>
+                <h5 class="author">Apoorvanand & Omita Goyal</h5>
+                <h4 class="price"><i class="fa fa-rupee"></i> 400.00 </h4>
+                <h4>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                </h4>
+            </figcaption>
+          </figure>
+          </a>
+
+          <a href="#" style="color: black;">
+          <figure class="figure">
+            <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ3fASrkh28JEOhxjxe-HA4tPyeRC1bdaXrOmWpm8yPo-DlcSCBYpDq1d15jLYU5bbV8rosn4VmQim5PfWA1Gf0e7yLigd-Czdc2lyej7w&usqp=CAE" style="height: 200px; width: 250px;" class="figure-img img-fluid" alt="">
+            <figcaption>
+                <h4 class="book_name">Information Technology</h4>
+                <h5 class="author">Amritha Varsha</h5>
+                <h4 class="price"><i class="fa fa-rupee"></i> 570.00 </h4>
+                <h4>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </h4>
+            </figcaption>
+          </figure>
+          </a>
+
+        </div>
+
+        <h3 class="categories">Stories</h3>
+          <div style="margin-right: 50px;">
+            <a href="#" style="color: black;">
+          <figure class="figure">
+            <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSNsdelQaRG9nT7THFUEsgYCRYx-e_hnbdRratzWyhQqm-UT_ayhnrQvCUoRH5qEb9riijDyzQ8f-NAsyKnlPFC4flTzBeLUWYVhEb7mN4&usqp=CAE" style="height: 200px; width: 250px;" class="figure-img img-fluid" alt="">
+            <figcaption>
+                <h4 class="book_name">GrandMa's Bag Of Stories</h4>
+                <h5 class="author">Sudha Murthy</h5>
+                <h4 class="price"><i class="fa fa-rupee"></i> 171.00 </h4>
+                <h4>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                </h4>
+            </figcaption>
+          </figure>
+          </a>
+
+          <a href="#" style="color: black;">
+          <figure class="figure">
+            <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS65cKmOCJwEQdFRVKvbVc16PkJNKZJLI6uoRwA4ZzHamcug1n78nyEb_sqXSMmgw5Ime8bXelu6A5gMVnTyob2g7r4Pj4nB6JrM3A_K1fT&usqp=CAE" style="height: 200px; width: 250px;" class="figure-img img-fluid" alt="">
+            <figcaption>
+                <h4 class="book_name">108 BedTime Stories</h4>
+                <h5 class="author">Rossow vendam</h5>
+                <h4 class="price"><i class="fa fa-rupee"></i> 125.00 </h4>
+                <h4>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-half"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                </h4>
+            </figcaption>
+          </figure>
+          </a>
+
+          <a href="#" style="color: black;">
+          <figure class="figure">
+            <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSMBAO5TQoZhorxxzPqF1QaIZ3lSeqWgsGp_jDZUfsPGi0E9aQTAz_mh-z9oRE7orO0cvnaAI-B5wFXIvbgqgZVtDx-9TmmG-XrYIIO93e3GOVWNWxPVp_P&usqp=CAE" style="height: 200px; width: 250px;" class="figure-img img-fluid" alt="">
+            <figcaption>
+                <h4 class="book_name">The journey Of Bunty & Chinku</h4>
+                <h5 class="author">Lakshman Molleti</h5>
+                <h4 class="price"><i class="fa fa-rupee"></i> 150.00 </h4>
+                <h4>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-half"></ion-icon>
+                </h4>
+            </figcaption>
+          </figure>
+          </a>
+
+          <a href="#" style="color: black;">
+          <figure class="figure">
+            <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQKcyeAyHVZq0BXEpneeTW9O2WQz1EkNMh2g9LC2loDNTRv29d_Yysg7TsKXvcTGEeFdKp42oHSyeGyiwvHx3k8OME5Y5TZqoP-r1GPfG1jtwN_q17_idnM&usqp=CAE" style="height: 200px; width: 250px;" class="figure-img img-fluid" alt="">
+            <figcaption>
+                <h4 class="book_name">Night Night Stories</h4>
+                <h5 class="author">Devishi Guptha</h5>
+                <h4 class="price"><i class="fa fa-rupee"></i> 200.00 </h4>
+                <h4>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                </h4>
+            </figcaption>
+          </figure>
+          </a>
+
+        </div>
+
+        <h3 class="categories">Religion</h3>
+        <div style="margin-right: 50px;">
+
+        <a href="#" style="color: black;">
+        <figure class="figure">
+          <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSczkLgDRg7GzI7YfjJwryKG0b6K_ns9MGnf5N9oCH3n3V0dxjjqRhUlolNTQjaJJ1yT0BAViTxFsXGsMl6WJPiK3QqEgrnmGTHcNNLRK14jbkkH5_toRUxdw&usqp=CAE" style="height: 200px; width: 250px;" class="figure-img img-fluid" alt="">
+          <figcaption>
+              <h4 class="book_name">The Holy Bible</h4>
+              <h5 class="author">Sawan Murthy</h5>
+              <h4 class="price"><i class="fa fa-rupee"></i> 112.80 </h4>
+              <h4>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star-outline"></ion-icon>
+              </h4>
+          </figcaption>
+        </figure>
+        </a>
+
+        <a href="#" style="color: black;">
+        <figure class="figure">
+          <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRDjcAb_DLMrMNEq8kg4OpV7ViL3mlFH3KCAV4wiZRn_ruSDp0wV8Xjxz0dFtvoVfxdKQOquXmu4SyGqwPSK4QkqTr4Q6-U9cpYS_4oOqA&usqp=CAE" style="height: 200px; width: 250px;" class="figure-img img-fluid" alt="">
+          <figcaption>
+              <h4 class="book_name">The Greatest Stories From The Quran</h4>
+              <h5 class="author">Hazira Begum</h5>
+              <h4 class="price"><i class="fa fa-rupee"></i> 125.00 </h4>
+              <h4>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star-half"></ion-icon>
+                <ion-icon name="star-outline"></ion-icon>
+              </h4>
+          </figcaption>
+        </figure>
+    </a>
+
+        <a href="#" style="color: black;">
+        <figure class="figure">
+          <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQDpUDkkBnipLdj9nmsZZjGJxIS2WgyReNKWbEVuGdsNEqqRG7lzruJmycZeimFVZx3nd00zLDgAjT_pDF9_Cgw5r5OM903ewO_22bn2U4v&usqp=CAE" style="height: 200px; width: 250px;" class="figure-img img-fluid" alt="">
+          <figcaption>
+              <h4 class="book_name">Bhagavdgita</h4>
+              <h5 class="author">Charles R. Swindoll</h5>
+              <h4 class="price"><i class="fa fa-rupee"></i> 1247.00 </h4>
+              <h4>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star-outline"></ion-icon>
+              </h4>
+          </figcaption>
+        </figure>
+    </a>
+
+        <a href="#" style="color: black;">
+        <figure class="figure">
+          <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSk70kB97A2wWnkuk9og6TshC9EXmfjB5sxOffIUMNjKLrwpBeJBbw5_elhmFrl0mrK-FDmpKLLGylkQ4Iz3nOiEstW3x4SijfvMyiR3ew&usqp=CAE" style="height: 200px; width: 250px;" class="figure-img img-fluid" alt="">
+          <figcaption>
+              <h4 class="book_name">Hanuman - The Heroic Monkey</h4>
+              <h5 class="author">Joshua Greene</h5>
+              <h4 class="price"><i class="fa fa-rupee"></i> 105.00 </h4>
+              <h4>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star-outline"></ion-icon>
+                <ion-icon name="star-outline"></ion-icon>
+              </h4>
+          </figcaption>
+        </figure>
+    </a>
+
+      </div>
+
+    </div>
+
+    <!-- Demo Video -->
+    <div class="embed-responsive embed-responsive-21by9">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bTgqPaQkqSM"></iframe>
+    </div>
+
+    <!-- Footer -->
+      <footer style="background: black; color: white" class="text-center text-lg-start" id="footer">
+
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    
+          <div class="me-5 d-none d-lg-block">
+            <span>Get connected with us on social networks:</span>
+          </div>
+    
+          <div>
+            <a href="" class="social-icon">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+            <a href="" class="social-icon">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+            <a href="" class="social-icon">
+              <ion-icon name="logo-google"></ion-icon>
+            </a>
+            <a href="" class="social-icon">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+            <a href="" class="social-icon">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+            <a href="" class="social-icon">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </div>
+    
+        </section>
+    
+        <section>
+          <div class="container text-center text-md-start mt-5">
+    
+            <div class="row mt-3">
+    
+              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-2">
+    
+                <h6 class="text-uppercase fw-bold mb-4">
+                  <i class="fas fa-gem me-3 text-secondary"></i>Ebooks
+                </h6>
+                <p class="text-center">
+                    E-books eliminate the need to choose one book over another to carry with you. E-books are portable and lightweight, making it easy to carry around 100s, even 1000s, of books at once on your mobile device, tablet, e-reader, or laptop.
+                </p>
+              </div>
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Our Websites
+                </h6>
+                <p>
+                  <a href="#!" class="text-reset">Google Play</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Open Library</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Z Library</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">ManyBooks</a>
+                </p>
+              </div>
+    
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-2">
+    
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Useful links
+                </h6>
+                <p>
+                  <a href="#" class="text-reset">Pricing</a>
+                </p>
+                <p>
+                  <a href="#" class="text-reset">Settings</a>
+                </p>
+                <p>
+                  <a href="#" class="text-reset">Orders</a>
+                </p>
+                <p>
+                  <a href="#" class="text-reset">Help</a>
+                </p>
+              </div>
+    
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-2">
+    
+                <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                <p><ion-icon name="home-outline"></ion-icon> Visakhapatnam, AP, India</p>
+                <p>
+                  <ion-icon name="mail-open-outline"></ion-icon></i>
+                  toursandtravels@gmail.com
+                </p>
+                <p><ion-icon name="call-outline"></ion-icon> + 91 9014640180</p>
+                <p><ion-icon name="call-outline"></ion-icon> + 91 9945789023</p>
+              </div>
+    
+            </div>
+    
+          </div>
+        </section>
+    
+        <div class="text-center p-4" style="background-color: grey;">
+          © 2023 Copyright:
+          <a class="text-reset fw-bold" href="https://ebooks.com/">ebooks.com</a>
+        </div>
+      </footer>
+
+
+    </body>
+</html>
