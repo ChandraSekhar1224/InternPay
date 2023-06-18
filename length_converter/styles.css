@@ -1,0 +1,61 @@
+body{  
+    font-family:monospace;
+    letter-spacing: 1px;
+    background: cadetblue;
+}
+.formulas{
+    background: blanchedalmond;
+    margin-top: 5px;
+    margin-left: 30%;
+}
+.form-elements{
+    margin: 5px;
+}
+.boxes{
+    display: flex;
+}
+.result-box{
+    width: 40%;
+    margin-left: 10px;
+    padding: 10px;
+}
+#res{
+    line-break:strict;
+}
+fieldset{
+    background: aquamarine;
+    border-radius: 10px;
+    border: 2px black solid;
+    width: 50%;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 5%;
+}
+legend{
+    color:blueviolet;
+    margin-left: 20px;
+}
+.input{
+    display: flex;
+    padding: 5px;
+}
+input{
+    border-radius: 5px;
+}
+span{
+    padding: 10px;
+}
+.output{
+    padding: 10px;
+    display: flex;
+}
+select{
+    margin-left: 10px;
+    margin-right: 20px;
+    border-radius: 5px;
+    width: 200px;
+}
+#output_cat{
+    margin-left: 28px;
+}
